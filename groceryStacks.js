@@ -1,10 +1,12 @@
+// Initialize an empty array for the grocery stack and set the maximum size
 let groceryStack = [];
 const maxSize = 5;
 
+// Arrays to track added and removed items
 let addedItems = [];    
 let removedItems = []; 
 
-// Peek function
+// Peek function: displays the top item of the stack without removing it
 function peek() {
   if (groceryStack.length === 0) {
     console.log("Stack is empty.");
@@ -15,7 +17,7 @@ function peek() {
   }
 }
 
-// Push function: adds an item 
+// Push function: adds an item to the stack if not full
 function push(item) {
   if (groceryStack.length < maxSize) {
     groceryStack.push(item);
@@ -26,11 +28,11 @@ function push(item) {
     alert("Stack is full. Cannot add more items.");
     console.log("Stack is full. Cannot add more items.");
   }
-  peek();
+  peek(); // Display the top item after adding
   console.log("Current Stack:", groceryStack);
 }
 
-// Pop function: removes the added item
+// Pop function: removes the most recently added item from the stack
 function pop() {
   if (groceryStack.length === 0) {
     alert("Stack is empty. Nothing to remove.");
@@ -41,11 +43,11 @@ function pop() {
     alert(`Item "${removedItem}" removed from stack. Current stack size: ${groceryStack.length}`);
     console.log(`Item "${removedItem}" removed from stack. Current stack size: ${groceryStack.length}`);
   }
-  peek();
+  peek(); // Display the top item after removing
   console.log("Current Stack:", groceryStack);
 }
 
-// User interaction
+// User interaction loop for adding or removing items
 let choice;
 do {
   choice = prompt(
@@ -55,18 +57,18 @@ do {
   if (choice === "1") {
     let item = prompt("Enter the grocery item to add:").trim();
     if (item) {
-      push(item);
+      push(item); // Call push function to add item
     } else {
-      alert("No item entered.");
+      alert("No item entered."); // Alert if no item is provided
     }
   } else if (choice === "2") {
-    pop();
+    pop(); // Call pop function to remove item
   } else if (choice !== "3") {
-    alert("Invalid choice. Please enter 1, 2, or 3.");
+    alert("Invalid choice. Please enter 1, 2, or 3."); // Alert for invalid input
   }
-} while (choice !== "3");
+} while (choice !== "3"); // Continue until the user chooses to exit
 
-// Summary of the added and removed items
+// Summary of the added and removed items upon exit
 alert(
   "Exited.\n\n" +
   "Final Grocery Stack:\n" + groceryStack.join(", ") + "\n\n" +
@@ -74,6 +76,7 @@ alert(
   "All Removed Items:\n" + removedItems.join(", ")
 );
 
+// Log final results to the console
 console.log("Exited. Final Grocery Stack:", groceryStack);
 console.log("All Added Items:", addedItems);
 console.log("All Removed Items:", removedItems);
