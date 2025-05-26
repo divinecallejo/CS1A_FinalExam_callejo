@@ -1,7 +1,7 @@
-// Create an empty array for numbers
+// array for numbers
 let numbers = [];
 
-// Prompt user for input
+// Prompt user
 for (let i = 0; i < 10; i++) {
     let num = parseInt(prompt("Enter a number:"));
     numbers.push(num);
@@ -21,11 +21,11 @@ function bubbleSort(arr) {
                 swapped = true;
             }
         }
-        n--; // Reduce the range of comparison
+        n--; // Reduce the range of a comparison
     } while (swapped);
     return arr;
 }
 
-// Sort the array and log the result
+// Sort the array and log 
 let sortedArray = bubbleSort(numbers);
 console.log("Sorted Array:", sortedArray);
