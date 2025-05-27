@@ -1,12 +1,11 @@
-// Initialize an empty array for the grocery stack and set the maximum size
+//let grocerystock to add and remove
 let groceryStack = [];
 const maxSize = 5;
 
-// Arrays to track added and removed items
 let addedItems = [];    
 let removedItems = []; 
-
-// Peek function: displays the top item of the stack without removing it
+ 
+// Peek function
 function peek() {
   if (groceryStack.length === 0) {
     console.log("Stack is empty.");
@@ -17,22 +16,22 @@ function peek() {
   }
 }
 
-// Push function: adds an item to the stack if not full
+// Push function
 function push(item) {
   if (groceryStack.length < maxSize) {
     groceryStack.push(item);
     addedItems.push(item); 
-    alert(`Item "${item}" added to stack. Current stack size: ${groceryStack.length}`);
-    console.log(`Item "${item}" added to stack. Current stack size: ${groceryStack.length}`);
+    alert(`Item "${item}" added to stack.`);
+    console.log(`Item "${item}" added to stack.`);
   } else {
     alert("Stack is full. Cannot add more items.");
     console.log("Stack is full. Cannot add more items.");
   }
-  peek(); // Display the top item after adding
+  peek();
   console.log("Current Stack:", groceryStack);
 }
 
-// Pop function: removes the most recently added item from the stack
+// Pop function
 function pop() {
   if (groceryStack.length === 0) {
     alert("Stack is empty. Nothing to remove.");
@@ -40,14 +39,14 @@ function pop() {
   } else {
     let removedItem = groceryStack.pop();
     removedItems.push(removedItem); 
-    alert(`Item "${removedItem}" removed from stack. Current stack size: ${groceryStack.length}`);
-    console.log(`Item "${removedItem}" removed from stack. Current stack size: ${groceryStack.length}`);
+    alert(`Item "${removedItem}" removed from stack.`);
+    console.log(`Item "${removedItem}" removed from stack.`);
   }
-  peek(); // Display the top item after removing
+  peek();
   console.log("Current Stack:", groceryStack);
 }
 
-// User interaction loop for adding or removing items
+// User interaction
 let choice;
 do {
   choice = prompt(
@@ -55,20 +54,20 @@ do {
   );
 
   if (choice === "1") {
-    let item = prompt("Enter the grocery item to add:").trim();
+    let item = prompt("Enter the grocery item to add:");
     if (item) {
-      push(item); // Call push function to add item
+      push(item);
     } else {
-      alert("No item entered."); // Alert if no item is provided
+      alert("No item entered.");
     }
   } else if (choice === "2") {
-    pop(); // Call pop function to remove item
+    pop();
   } else if (choice !== "3") {
-    alert("Invalid choice. Please enter 1, 2, or 3."); // Alert for invalid input
+    alert("Invalid choice. Please enter 1, 2, or 3.");
   }
-} while (choice !== "3"); // Continue until the user chooses to exit
+} while (choice !== "3");
 
-// Summary of the added and removed items upon exit
+// Summary of the added and removed items
 alert(
   "Exited.\n\n" +
   "Final Grocery Stack:\n" + groceryStack.join(", ") + "\n\n" +
@@ -76,7 +75,6 @@ alert(
   "All Removed Items:\n" + removedItems.join(", ")
 );
 
-// Log final results to the console
 console.log("Exited. Final Grocery Stack:", groceryStack);
 console.log("All Added Items:", addedItems);
 console.log("All Removed Items:", removedItems);
